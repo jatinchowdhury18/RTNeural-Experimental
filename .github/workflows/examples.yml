@@ -60,7 +60,7 @@ jobs:
       env:
         BACKEND_ARG: ${{ matrix.backend }}
       shell: bash
-      run: cmake -Bbuild -DBUILD_EXAMPLES=ON $BACKEND_ARG
+      run: cmake -Bbuild $BACKEND_ARG
 
     - name: Build
       shell: bash
