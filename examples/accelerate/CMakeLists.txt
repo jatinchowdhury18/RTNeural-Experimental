@@ -1,0 +1,2 @@
+create_example(rtneural_accelerate)
+target_link_libraries(rtneural_accelerate PRIVATE RTNeural-accelerate)
