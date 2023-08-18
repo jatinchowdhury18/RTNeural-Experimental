@@ -67,7 +67,7 @@ jobs:
       run: cmake --build build --config Release --parallel
 
     - name: "Run Examples"
-      working-directory: ${{env.WORK_DIR}}/build/examples_out
+      working-directory: build/examples_out
       shell: bash
       run: |
         for exe in *; do
