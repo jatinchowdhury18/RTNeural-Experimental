@@ -4,9 +4,18 @@ file(MAKE_DIRECTORY ${EXAMPLES_OUT_DIR})
 function(create_example example_name)
     message(STATUS "RTNeural-experimental -- Configuring example: ${example_name}")
     add_executable(${example_name} ${example_name}.cpp)
-    target_link_libraries(${example_name} PUBLIC RTNeural)
+    target_link_libraries(${example_name}
+        PUBLIC
+            RTNeural
+            RTNeural-experimental
+    )
     target_compile_features(${example_name} PRIVATE cxx_std_17)
-    target_compile_definitions(${example_name} PRIVATE RTNEURAL_SOURCE_DIR="${CPM_RTNeural_SOURCE}")
+    target_include_directories(${example_name} PRIVATE ${CPM_RTNeural_SOURCE})
+    target_compile_definitions(${example_name}
+        PRIVATE
+            RTNEURAL_SOURCE_DIR="${CPM_RTNeural_SOURCE}"
+            RTNEURAL_EXPERIMENTS_SOURCE_DIR="${CMAKE_SOURCE_DIR}"
+    )
 
     add_custom_command(TARGET ${example_name}
         POST_BUILD

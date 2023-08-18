@@ -26,6 +26,10 @@ if(APPLE)
     target_include_directories(RTNeural-accelerate INTERFACE include/RTNeural-accelerate)
 endif()
 
+add_library(RTNeural-experimental INTERFACE)
+target_link_libraries(RTNeural-experimental INTERFACE RTNeural)
+target_include_directories(RTNeural-experimental INTERFACE include/RTNeural-experiments)
+
 if(${is_toplevel})
     add_subdirectory(examples)
 endif()
