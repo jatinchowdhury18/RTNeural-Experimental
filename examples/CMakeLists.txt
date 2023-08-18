@@ -13,7 +13,7 @@ function(create_example example_name)
     target_include_directories(${example_name} PRIVATE ${CPM_RTNeural_SOURCE})
     target_compile_definitions(${example_name}
         PRIVATE
-            RTNEURAL_SOURCE_DIR="${CPM_RTNeural_SOURCE}"
+            RTNEURAL_SOURCE_DIR="${RTNeural_SOURCE_DIR}"
             RTNEURAL_EXPERIMENTS_SOURCE_DIR="${CMAKE_SOURCE_DIR}"
     )
 
